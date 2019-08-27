@@ -1,0 +1,100 @@
+"plug 插件列表 
+call plug#begin()
+"下载列编辑插件
+"Plug 'terryma/vim-multiple-cursors'
+"下载c++11语法高亮
+Plug 'octol/vim-cpp-enhanced-highlight'
+"下载可视化缩进模块
+Plug 'nathanaelkane/vim-indent-guides'
+call plug#end()
+
+"修改vim的leader键
+let mapleader = ';'
+let maplocalleader = ','
+
+"PlugInstall 安装插件
+"PlugInstall [name ...] [#threads] 安装指定插件
+"PlugUpdate [name ...] [#threads] 更新插件
+"PlugClean[!] 删除未列出的插件
+
+"配置可视化缩进
+"IndentGuidesEnable
+"IndentGuidesDisable
+"IndentGuidesToggle
+"随vim自动启动
+let g:indent_guides_enable_on_vim_startup=1
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 m 开/关缩进可视化
+:nmap <silent> <Leader>m <Plug>IndentGuidesToggle
+" 缩进色块为黑色
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=black ctermbg=0
+
+"vim-multiple-cursors多行编辑插件的配置
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"禁用上下左右方向键
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+"自动缩进
+"set autoindent
+"set cindent
+
+"设置根据不同语言，智能缩进
+filetype indent on
+
+"统一缩进为4
+set softtabstop=4
+set shiftwidth=4
+
+"tab=4
+set tabstop=4
+
+"space代替table
+set expandtab
+
+"语法高亮
+syntax on
+
+"代码折叠 za:打开或关闭折叠 zM:关闭所有折叠 zR:打开所有折叠
+set foldmethod=syntax
+"启动vim时，关闭折叠代码
+set nofoldenable
+"设置折叠行的高亮颜色
+highlight Folded ctermfg=5 ctermbg=0
+
+"显示行号
+set number
+
+"光标不闪烁
+set gcr=a:block-blinkon0
+
+
+"将打开NERDTree打开和隐藏设为 leader+n
+map <Leader>n :NERDTreeToggle<cr>
+
+
+"关闭兼容模式
+set nocompatible
+
+"开启文件类型侦测
+filetype on
+"根据文件类型，加载对应插件
+filetype plugin on
+
+"高亮显示搜索结果
+set hlsearch
+
+"高亮当前行和列
+"set cursorline
+"set cursorcolumn
+
+
