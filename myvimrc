@@ -160,6 +160,11 @@ hi CursorLineNr term=bold cterm=italic ctermfg=green guibg=Grey40
 "   a 以上所有模式
 set mouse=a
 
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,chinese,cp936
+
 source ~/.vim/vimfile/mybase.vim
 source ~/.vim/vimfile/vim-tmux-navigator.vim
 source ~/.vim/vimfile/DoxygenToolkit.vim
